@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Add from "../img/upload.png";
+import Add from "../img/addAvatar.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -79,7 +79,7 @@ const Register = () => {
             err && <span>Something went wrong</span>
           }
         </form>
-        <p>You do have an account? <Link to='/register'>Login</Link> </p>
+        <p>You do have an account? <Link to='/login'>Login</Link> </p>
       </div>
     </div>
   )

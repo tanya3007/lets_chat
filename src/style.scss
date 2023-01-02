@@ -94,7 +94,6 @@
             img 
             {
                 width: 32px;
-                border-radius: 10px;
             }
 
         }
@@ -255,7 +254,7 @@
                 background-color: #ddddf7;
                 padding: 10px;
                 height: calc(100% - 160px);
-                overflow: scroll;
+                overflow-y: scroll;
 
                 .message
                 {
@@ -358,6 +357,10 @@
             }
 
 
+        }
+        .chats{
+            overflow-y: scroll;
+            max-height: 381px;
         }
     }
 }

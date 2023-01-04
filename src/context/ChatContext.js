@@ -1,6 +1,4 @@
-import React, { createContext, useContext, useEffect, useReducer, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from '../firebase';
+import React, { createContext, useContext, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
 
 export const ChatContext = createContext();
@@ -12,12 +10,6 @@ export const ChatContextProvider = ({ children }) => {
         user: {}
     }
     const chatReducer = (state, action) => {
-        let lund = currentUser.uid > action.payload.uid
-        ? currentUser.uid + action.payload.uid
-        : action.payload.uid + currentUser.uid
-        console.log("lol1 chatContext : ", action, typeof action, action.type)
-        console.log("lol2 chatContext : ", currentUser.uid, action.payload.uid, lund)
-        console.log("lol3 chatContext : ", currentUser.uid > action.payload.uid)
         switch (action.type) {
             case "CHANGE_USER":
                 return {

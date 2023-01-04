@@ -13,13 +13,8 @@ const Chats = () => {
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, 'userChats', currentUser.uid), (doc) => {
-        console.log("chats : ", currentUser)
         setChats(doc.data());
-        console.log("chats 123 : ", doc.data())
 
-        // Object.entries(doc.data())?.sort((a,b)=>b[1].date - a[1].date ).map((chat) => {
-          // console.log("new", chat[1].userInfo)
-        // });
 
       });
       return () => {
@@ -27,11 +22,10 @@ const Chats = () => {
       };
     };
     currentUser.uid && getChats()
-  }, [currentUser.uid]);
+  }, [currentUser, currentUser.uid]);
 
   const handleSelect = (u) =>
   {
-    console.log("chats handleSelect dispatch", u)
     dispatch({type:"CHANGE_USER", payload: u})
   }
 

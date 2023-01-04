@@ -5,8 +5,6 @@ import { ChatContext } from '../context/ChatContext'
 const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext)
   const { data } = useContext(ChatContext)
-  console.log("message.jsx : ", message)
-  console.log("photoURL : ", currentUser.photoURL)
   const ref = useRef()
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" })
@@ -23,7 +21,7 @@ const Message = ({ message }) => {
         <span>just now</span>
       </div>
       <div className="messageContent">
-        { message.text=="" ?
+        { message.text==="" ?
           "" :
           <p>{message.text}</p>
         }

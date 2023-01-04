@@ -26,7 +26,10 @@ const Search = () => {
         });
       }
       else{
-        throw "username not found."
+        throw Object.assign(
+          new Error("username not found.")
+       )
+
       }
     }
 
@@ -45,10 +48,6 @@ const Search = () => {
     const combinedId = currentUser.uid > user.uid
       ? currentUser.uid + user.uid
       : user.uid + currentUser.uid;
-    console.log("currentUser Search : ", currentUser.uid)
-    console.log("user Search : ", user.uid)
-    console.log("comparison Search : ", currentUser.uid > user.uid)
-    console.log("combinedId : ", combinedId)
     try {
       // create a chat in chats collection
       const res = await getDoc(doc(db, "chats", combinedId));
@@ -78,7 +77,6 @@ const Search = () => {
       }
     }
     catch (e) { console.log("handleSelect catch : ", e) }
-    console.log("lol user", user);
     dispatch({type:"CHANGE_USER", payload: user})
     setUser(null);
     setUsername("");

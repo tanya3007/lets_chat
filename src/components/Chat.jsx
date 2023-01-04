@@ -14,32 +14,24 @@ const Chat = () => {
   return (
     <div className='chat'>
       <div className="chatInfo">
-        
-        <span style={{"display":"flex"}}>
-          <img src={data.user?.photoURL}
-            style={{
-              "height":"24px",
-              "width":"24px",
-              "borderRadius":"50px",
-              "objectFit":"cover",
-              "marginRight":"10px"
-            }} alt="" />
+        <span style={{ "display": "flex" }}>
+          <img src={data.user?.photoURL} style={{ "height": "24px", "width": "24px", "borderRadius": "50px", "objectFit": "cover", 'marginRight': "10px" }} alt="" />
           {data.user?.displayName}
         </span>
         <div className="chatIcons">
           <IconButton>
-            <VideoCameraFrontIcon/>
-            </IconButton>
-            <IconButton>
-            < PersonAddIcon/>
-            </IconButton>
-            <IconButton>
-            <MoreHorizIcon/>
+            <VideoCameraFrontIcon />
+          </IconButton>
+          <IconButton>
+            < PersonAddIcon />
+          </IconButton>
+          <IconButton>
+            <MoreHorizIcon />
           </IconButton>
         </div>
       </div>
-      <Messages/>
-      <Input/>
+      <Messages />
+      <Input />
     </div>
   )
 }
